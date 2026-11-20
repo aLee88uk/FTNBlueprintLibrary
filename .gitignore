@@ -1,0 +1,29 @@
+# --- python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# --- test / tooling caches ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- PyInstaller (keep the spec + version resource, ignore build output) ---
+client/build/*
+!client/build/ftnlib.spec
+!client/build/version_info.txt
+client/dist/
+
+# --- runtime data (lives outside the repo, but be safe) ---
+*.ftnlib.tmp
+
+# --- editors / OS ---
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

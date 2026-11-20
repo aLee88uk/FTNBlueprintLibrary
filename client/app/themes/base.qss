@@ -1,0 +1,394 @@
+/* FTN Blueprint Library — shared stylesheet template.
+   Tokens written as double-brace placeholders are substituted from
+   themes/palettes.json by theme.py. */
+
+* {
+    font-family: "Segoe UI", "Inter", system-ui, sans-serif;
+    font-size: 13px;
+    color: {{text}};
+}
+
+QWidget#Root, QMainWindow {
+    background: {{bg}};
+}
+
+/* ---------------- navigation rail ---------------- */
+QFrame#NavRail {
+    background: {{nav_bg}};
+    border-right: 1px solid {{border}};
+}
+QLabel#BrandTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: {{text}};
+}
+QLabel#BrandSubtitle {
+    font-size: 11px;
+    color: {{muted}};
+}
+QPushButton#NavButton {
+    text-align: left;
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: {{muted}};
+    font-size: 13px;
+    font-weight: 600;
+}
+QPushButton#NavButton:hover {
+    background: {{surface_alt}};
+    color: {{text}};
+}
+QPushButton#NavButton:checked {
+    background: {{nav_active_bg}};
+    color: {{nav_active_text}};
+    border: 1px solid {{border}};
+}
+QPushButton#SupportButton {
+    background: {{surface_alt}};
+    border: 1px solid {{border}};
+    border-radius: 19px;
+    padding: 0;
+    font-size: 18px;
+}
+QPushButton#SupportButton:hover {
+    background: {{surface}};
+    border: 1px solid {{accent}};
+}
+
+/* ---------------- top bar ---------------- */
+QFrame#TopBar {
+    background: {{surface}};
+    border-bottom: 1px solid {{border}};
+}
+QLabel#PageTitle {
+    font-size: 17px;
+    font-weight: 700;
+}
+QLabel#PageSubtitle {
+    font-size: 12px;
+    color: {{muted}};
+}
+
+/* ---------------- inputs ---------------- */
+QLineEdit, QTextEdit, QPlainTextEdit, QComboBox, QSpinBox {
+    background: {{surface}};
+    border: 1px solid {{border}};
+    border-radius: 8px;
+    padding: 7px 10px;
+    selection-background-color: {{selection}};
+    selection-color: {{text}};
+}
+QLineEdit:focus, QTextEdit:focus, QPlainTextEdit:focus, QComboBox:focus {
+    border: 1px solid {{accent}};
+}
+QLineEdit#SearchInput {
+    padding-left: 12px;
+    min-height: 20px;
+}
+QComboBox::drop-down {
+    border: none;
+    width: 22px;
+}
+QComboBox QAbstractItemView {
+    background: {{surface}};
+    border: 1px solid {{border}};
+    selection-background-color: {{selection}};
+    selection-color: {{text}};
+    outline: none;
+}
+
+/* ---------------- buttons ---------------- */
+QPushButton {
+    background: {{surface_alt}};
+    border: 1px solid {{border}};
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-weight: 600;
+}
+QPushButton:hover {
+    border: 1px solid {{accent}};
+}
+QPushButton:disabled {
+    color: {{muted}};
+    background: {{surface}};
+    border: 1px solid {{border}};
+}
+QPushButton#Primary {
+    background: {{accent}};
+    color: {{accent_text}};
+    border: 1px solid {{accent}};
+}
+QPushButton#Primary:hover {
+    background: {{accent_hover}};
+    border: 1px solid {{accent_hover}};
+}
+QPushButton#Danger {
+    color: {{danger}};
+    border: 1px solid {{danger}};
+    background: transparent;
+}
+QPushButton#Ghost {
+    background: transparent;
+    border: 1px solid transparent;
+    color: {{muted}};
+}
+QPushButton#Ghost:hover {
+    color: {{text}};
+    border: 1px solid {{border}};
+}
+QPushButton#CloseButton {
+    background: {{surface_alt}};
+    border: 1px solid {{border}};
+    color: {{text}};
+    border-radius: 8px;
+    padding: 0;
+    font-size: 17px;
+    font-weight: 700;
+}
+QPushButton#CloseButton:hover {
+    background: {{accent}};
+    border: 1px solid {{accent}};
+    color: {{accent_text}};
+}
+QPushButton#Like {
+    background: {{surface_alt}};
+    border: 1px solid {{border}};
+    color: {{text}};
+    padding: 7px 12px;
+}
+QPushButton#Like[liked="true"] {
+    color: {{danger}};
+    border: 1px solid {{danger}};
+}
+QPushButton#Chip {
+    border-radius: 13px;
+    padding: 5px 12px;
+    background: {{chip_bg}};
+    border: 1px solid {{chip_border}};
+    color: {{chip_text}};
+    font-weight: 600;
+}
+QPushButton#Chip:checked {
+    background: {{accent}};
+    color: {{accent_text}};
+    border: 1px solid {{accent}};
+}
+
+/* ---------------- cards ---------------- */
+QFrame#Card {
+    background: {{surface}};
+    border: 1px solid {{border}};
+    border-radius: 12px;
+}
+QFrame#Card:hover {
+    border: 1px solid {{accent}};
+}
+QLabel#CardTitle {
+    font-size: 14px;
+    font-weight: 700;
+}
+QLabel#CardMeta {
+    color: {{muted}};
+    font-size: 11.5px;
+}
+QLabel#Badge {
+    background: {{chip_bg}};
+    border: 1px solid {{chip_border}};
+    border-radius: 9px;
+    padding: 2px 8px;
+    color: {{chip_text}};
+    font-size: 11px;
+    font-weight: 600;
+}
+QLabel#SectionTitle {
+    font-size: 13px;
+    font-weight: 700;
+    color: {{muted}};
+}
+QWidget#RecoveryBox {
+    background: {{surface_alt}};
+    border: 1px solid {{accent}};
+    border-radius: 9px;
+}
+QLabel#RecoveryCode {
+    background: {{surface}};
+    border: 1px solid {{border}};
+    border-radius: 6px;
+    color: {{text}};
+    font-family: "Cascadia Mono", "Consolas", monospace;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 8px 10px;
+}
+QLabel#EmptyState {
+    color: {{muted}};
+    font-size: 14px;
+}
+
+/* ---------------- drawer / panels ---------------- */
+QFrame#Drawer {
+    background: {{surface}};
+    border-left: 1px solid {{border}};
+}
+QFrame#Panel {
+    background: {{surface}};
+    border: 1px solid {{border}};
+    border-radius: 12px;
+}
+QFrame#Separator, QWidget#Separator {
+    background: {{border}};
+    max-height: 1px;
+    border: none;
+}
+
+/* ---------------- scroll areas ---------------- */
+QScrollArea, QAbstractScrollArea {
+    background: transparent;
+    border: none;
+}
+QScrollArea > QWidget,
+QScrollArea > QWidget > QWidget,
+QStackedWidget {
+    background: transparent;
+}
+QScrollBar:vertical {
+    background: {{scroll_bg}};
+    width: 11px;
+    margin: 0;
+    border-radius: 5px;
+}
+QScrollBar::handle:vertical {
+    background: {{scroll_handle}};
+    border-radius: 5px;
+    min-height: 32px;
+}
+QScrollBar::handle:vertical:hover {
+    background: {{scroll_handle_hover}};
+}
+QScrollBar:horizontal {
+    background: {{scroll_bg}};
+    height: 11px;
+    border-radius: 5px;
+}
+QScrollBar::handle:horizontal {
+    background: {{scroll_handle}};
+    border-radius: 5px;
+    min-width: 32px;
+}
+QScrollBar::add-line, QScrollBar::sub-line, QScrollBar::add-page, QScrollBar::sub-page {
+    background: none;
+    border: none;
+    height: 0;
+    width: 0;
+}
+
+/* ---------------- toast ---------------- */
+QFrame#Toast {
+    background: {{surface}};
+    border: 1px solid {{accent}};
+    border-radius: 10px;
+}
+QLabel#ToastText {
+    font-weight: 600;
+}
+QFrame#Toast[level="error"] { border: 1px solid {{danger}}; }
+QFrame#Toast[level="success"] { border: 1px solid {{success}}; }
+QFrame#Toast[level="warning"] { border: 1px solid {{warning}}; }
+
+/* ---------------- misc ---------------- */
+QLabel#PathLabel {
+    color: {{muted}};
+    font-family: "Cascadia Mono", "Consolas", monospace;
+    font-size: 11.5px;
+}
+QProgressBar {
+    background: {{surface_alt}};
+    border: 1px solid {{border}};
+    border-radius: 6px;
+    text-align: center;
+    color: {{muted}};
+}
+QProgressBar::chunk {
+    background: {{accent}};
+    border-radius: 5px;
+}
+QToolTip {
+    background: {{surface}};
+    color: {{text}};
+    border: 1px solid {{border}};
+    padding: 4px 6px;
+}
+
+/* ---------------- dialogs / message boxes ---------------- */
+QDialog, QMessageBox {
+    background: {{bg}};
+}
+QDialog QLabel, QMessageBox QLabel {
+    color: {{text}};
+}
+QDialog QLabel#CardMeta, QDialog QLabel#SectionTitle {
+    color: {{muted}};
+}
+QDialogButtonBox QPushButton {
+    background: {{surface_alt}};
+    border: 1px solid {{border}};
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-weight: 600;
+    color: {{text}};
+}
+QDialogButtonBox QPushButton:hover {
+    border: 1px solid {{accent}};
+}
+QDialogButtonBox QPushButton:default {
+    background: {{accent}};
+    color: {{accent_text}};
+    border: 1px solid {{accent}};
+}
+QDialogButtonBox QPushButton:default:hover {
+    background: {{accent_hover}};
+    border: 1px solid {{accent_hover}};
+}
+QMessageBox QPushButton {
+    background: {{surface_alt}};
+    border: 1px solid {{border}};
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-weight: 600;
+    color: {{text}};
+}
+QMessageBox QPushButton:hover {
+    border: 1px solid {{accent}};
+}
+
+/* ---------------- context menus ---------------- */
+QMenu {
+    background: {{surface}};
+    border: 1px solid {{border}};
+    border-radius: 8px;
+    padding: 6px;
+    color: {{text}};
+}
+QMenu::item {
+    padding: 7px 28px 7px 16px;
+    border-radius: 6px;
+    color: {{text}};
+}
+QMenu::item:selected {
+    background: {{surface_alt}};
+    border: 1px solid {{accent}};
+    padding: 6px 27px 6px 15px;
+}
+QMenu::item:disabled {
+    color: {{muted}};
+}
+QMenu::separator {
+    height: 1px;
+    background: {{border}};
+    margin: 5px 8px;
+}
+QMenu::right-arrow {
+    padding-right: 12px;
+}

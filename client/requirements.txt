@@ -1,0 +1,9 @@
+# FTN Blueprint Library — desktop client requirements.
+# Shared codec needs nothing beyond the standard library.
+
+PySide6>=6.7,<7          # Qt 6 bindings (widgets + QSvgRenderer for previews)
+httpx>=0.27,<1           # API client
+psutil>=5.9              # "is the game running?" safety check
+
+# --- development / tests ---
+# pytest>=8
