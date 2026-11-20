@@ -86,18 +86,26 @@ class LocalBlueprint:
 
 
 def is_game_running() -> bool:
-    """Return ``True`` when a Find The Needle process is present."""
+    """Return ``True`` when a Find The Needle process is present.
+
+    Only the executable's *base name* is inspected (never its full path), so
+    launching this tool from a folder such as ``...\\find the needle\\...`` does
+    not make it mistake itself for the game.
+    """
     try:
         import psutil
     except ImportError:  # pragma: no cover - optional dependency
         return False
+    own_pid = os.getpid()
     for proc in psutil.process_iter(["name", "exe"]):
         try:
+            if proc.pid == own_pid:
+                continue
             info = proc.info
         except Exception:  # noqa: BLE001 - psutil can raise many things
             continue
         haystack = " ".join(
-            str(info.get(key) or "") for key in ("name", "exe")
+            Path(str(info.get(key) or "")).name for key in ("name", "exe")
         ).lower()
         if not haystack:
             continue
