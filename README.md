@@ -7,11 +7,11 @@ A Windows desktop app (Python + PySide6) that reads your local
 community blueprints (installing them **safely** into the game folder), and
 publishes your own. Browsing and downloading need no signup: players are
 identified only by the game's own `install_key`. Uploading and rating need a
-free account — created with nothing but a **name** (no password), because the key
+free account , created with nothing but a **name** (no password), because the key
 itself is the credential.
 
 > This repository contains the **desktop client and the shared
-> parsing/preview library only** — the full source of everything that ships in
+> parsing/preview library only** , the full source of everything that ships in
 > the `.exe`. The hosted library service it talks to is not part of this repo.
 
 ---
@@ -27,7 +27,7 @@ itself is the credential.
 - **One preview generator for both sides.** The shared code renders an SVG that
   the client rasterises with Qt, so what you see is what the library produced.
 - **Anonymous by default, accountable where it matters.** Identity is the game's
-  `install_key`, stored only as a salted hash — never the key itself, and never
+  `install_key`, stored only as a salted hash , never the key itself, and never
   its hash either: the hash stays in a private column and is not returned by any
   API response, so it can never be lifted out of a public payload to impersonate
   its owner. Uploading and rating are the two actions that need a free account,
@@ -35,15 +35,15 @@ itself is the credential.
   twice and every upload is always traceable. A second registration from the same
   game install is refused and told to sign in to the existing account.
 - **Passwordless by design.** Account creation asks for a name and nothing else:
-  the game key *is* the credential. Sign-in needs no password — if the key is
+  the game key *is* the credential. Sign-in needs no password , if the key is
   already on file the client signs you in automatically. Login tokens are stored
   only as their SHA-256 digest. No email address is ever collected, and there is
   no password to reset or mail server to run.
 - **Portable accounts.** Because the key is generated per install, a wiped drive
   or a new PC would otherwise strand an account. Every account is issued a
   one-time **recovery code** at registration (shown once, stored only as a salted
-  hash); entering it on a new install re-binds the account — keeping your name
-  and uploads — and rotates the code.
+  hash); entering it on a new install re-binds the account , keeping your name
+  and uploads , and rotates the code.
 - **Retail-only, format-checked.** All of this relies on the game's real
   `install_key`. The library accepts only a well-formed 64-character hex key, so a
   cracked build cannot register with a made-up string; such a build can still
@@ -81,11 +81,11 @@ check whether it is online; the address is not user-editable.
 If your blueprint folder is not auto-detected, point the client at it in
 **Settings → Blueprints folder**.
 
-To upload or rate a blueprint, sign in first — the account button at the bottom
+To upload or rate a blueprint, sign in first , the account button at the bottom
 of the left rail opens a small dialog where you create an account with just a
 **name** (no password) or sign in. Sign-in is automatic whenever your game key is
 already on file, so normally you never touch the dialog twice. Registration shows
-a one-time **recovery code** — save it: it is the only way to move the account to
+a one-time **recovery code** , save it: it is the only way to move the account to
 a new PC. The dialog's **Get recovery code** button issues a fresh one, and
 **Use a recovery code** on a new install re-binds the account to it. If your game
 install has no key (a pirated build), browsing and downloading still work, but
